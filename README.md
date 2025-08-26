@@ -1,5 +1,8 @@
 # Nutrient dosing system
 
+<div align="center"><img src="media/20250319_113039.jpg" width="100%"></div>
+
+<br>
 A nutrient dosing system, also known as a fertigation system, is a vital piece of technology for any commercial growing operation that uses hydroponics, aeroponics  or other soilless growing methods. The systems automatically mix and deliver a precise nutrient solution to plants, eliminating manual labor, optimizing plant health, and maximizing yields.
 
 ## Problem 
@@ -24,19 +27,19 @@ A water level sensor in the holding tank shuts down the system if the water leve
 
 During the testing phase, several different sizes of Venturi valves were used. Initially, some of these valves pulled in far too much nutrient solution, causing massive swings in EC and pH. This made it impossible to maintain the correct values without significantly overshooting the set points.
 
-<div ><img src="media/20250305_082214.jpg"></div>
+<div align="center"><img src="media/20250305_082214.jpg" width="45.5%"><img src="media/venturi.jpg" width="34%"></div>
 
 After allot of testing, it was discovered that using a smaller Venturi valve in combination with a constant flow valve, set at 10 liters per minute, provided precise control. This specific setup consistently pulled in 25 ml of nutrient per second, allowing the system to accurately manage and maintain the desired nutrient levels.
 
 ## Sensors
 
-All the sensors PC, EC, Waterlevel etc all use MODBUS RS485 comunication protocal.
+All sensors (pH, EC, water level, etc.) communicate using the MODBUS RS485 protocol.
 
-Water temperature significantly affects both EC and pH measurements. To ensure accuracy, sensors for both are equipped with Automatic Temperature Compensation (ATC), which automatically adjusts the readings to a standard reference temperature of 25°C.
+Water temperature has a significant impact on both EC and pH measurements. To ensure accuracy, sensors for both parameters are equipped with Automatic Temperature Compensation (ATC), which adjusts readings to a standard reference temperature of 25 °C.
 
-EC (Electrical Conductivity): As temperature rises, the ions in the solution move faster, increasing the solution's ability to conduct electricity. This results in a higher EC reading. The opposite is true for colder temperatures. To get an accurate reading, EC sensors use Automatic Temperature Compensation (ATC) to adjust the measurement to a standard temperature, typically 25°C.
+EC (Electrical Conductivity): As temperature increases, ions in the solution move more quickly, which raises the solution’s ability to conduct electricity and results in a higher EC reading. Conversely, colder temperatures reduce ion mobility and lower the reading. ATC corrects for these fluctuations by normalizing measurements to 25 °C.
 
-pH: Temperature affects the pH reading in two ways. First, it alters the voltage output of the pH sensor itself. Second, the actual chemical equilibrium of the water changes with temperature, causing the concentration of hydrogen ions to increase as the solution gets warmer. pH sensors also use ATC to correct for the sensor's voltage output, ensuring more reliable and consistent measurements.
+pH: Temperature influences pH in two ways. First, it changes the voltage output of the pH sensor. Second, it alters the chemical equilibrium of the water itself, increasing the concentration of hydrogen ions as the solution warms. ATC compensates for the sensor’s voltage variations, producing more consistent and reliable measurements.
 
 ## Electrical enclosure
 
@@ -54,7 +57,8 @@ The electrical enclosure contains the Optidrive for motor control, along with al
 <div align="center"><img src="media/20250220_130524.jpg" width="45%"><img src="media/20250221_112245.jpg" width="45%"></div>
 
 
-System make up
+System make up:
+
 * Constant pressure pump
 * Venturi injectors
 * Solenoid valves
@@ -69,3 +73,26 @@ System make up
 <div align="center"><img src="media/20250220_130524.jpg" width="100%"></div>
 
 <div align="center"><img src="media/20250221_112245.jpg" width="100%"></div>
+
+
+## Testing
+
+After the initial setup, we began a trial-and-error process to find the right flow rates and venturi settings. We quickly discovered that a smaller venturi provided much better control over nutrient delivery.
+
+Adjusting the Optidrive settings was also a challenge. However, once the correct settings were found, the pump would shut down, and the system would maintain its pressure. It also recovered quickly whenever a valve was opened.
+
+To monitor the system's performance, I used MQTT to track the EC and pH probes, allowing me to see how fast the system reached its target setpoints. 
+
+The test was performed with 200 liters of water to evaluate the system's ability to adjust water quality. Since the local water is hard, a nutrient mixture and a pH down solution were used.
+
+Initial Water Conditions:
+* pH: 7.8
+* EC: 0.3
+
+Target Setpoints:
+* pH: 6.2
+* EC: 1.5
+
+Performance:
+
+The system successfully reached its target setpoints in approximately 20 minutes. The venturi opening time was calculated at 2 seconds to achieve the desired results. The system performed batter than expected.
