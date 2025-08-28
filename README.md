@@ -1,17 +1,19 @@
 # Nutrient dosing system
 
-<div align="center"><img src="media/20250319_113039.jpg" width="100%"></div>
+<div align="center"><img src="media/doser.jpg" width="100%"></div>
 
 <br>
 A nutrient dosing system, also known as a fertigation system, is a vital piece of technology for any commercial growing operation that uses hydroponics, aeroponics  or other soilless growing methods. The systems automatically mix and deliver a precise nutrient solution to plants, eliminating manual labor, optimizing plant health, and maximizing yields.
 
 ## Problem 
 
-A commercial grower in Bahrain was facing challenges with precise nutrient fertigation control in their greenhouses. Inconsistent dosing led to crop performance issues and created a major barrier to scaling up production.
+A commercial grower was facing challenges with precise nutrient fertigation control in their greenhouses. Inconsistent dosing led to crop performance issues and created a major barrier to scaling up production.
 
 ## So how does it work?
 
 The system continuously monitors the water’s electrical conductivity (EC) and pH using specialized sensors. Based on a preset recipe, the controller determines whether additional nutrients are required.
+
+<div align="center"><img src="media/20250319_113039.jpg" width="100%"></div>
 
 If EC or pH levels fall outside the desired range, the system activates. Solenoid valves connected to Venturi injectors open for a set duration (e.g., 2.5 seconds), allowing nutrient concentrates to be dosed into the line. The nutrient ratios—such as a 50:50 mix of Part A and Part B, or a 30:70 mix—are determined by the head growers according to crop requirements.
 
@@ -70,9 +72,9 @@ System make up:
 * controllino microcontroller
 
 <br>
-<div align="center"><img src="media/20250220_130524.jpg" width="100%"></div>
+<div align="center"><img src="media/lowvoltage.jpg" width="100%"></div>
 
-<div align="center"><img src="media/20250221_112245.jpg" width="100%"></div>
+<div align="center"><img src="media/Doser240v.jpg" width="100%"></div>
 
 
 ## Testing
